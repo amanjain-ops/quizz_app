@@ -6,9 +6,20 @@ void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  // ignore: no_logic_in_create_state
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    throw UnimplementedError();
+  }
+
+}
+class MyAppState extends State {
+
+  var questionIndex = 0;
   void answerQuestion() {
-    print("Answer chosen!");
+    questionIndex = questionIndex + 1 ;
   }
 
   @override
@@ -24,7 +35,9 @@ class MyApp extends StatelessWidget {
         ),
         body: Column(
           children: [
-            Text("The question!"),
+            Text(
+              question[questionIndex],
+            ),
             RaisedButton(
               child: Text("Answer 1"),
               onPressed: answerQuestion,
