@@ -8,18 +8,18 @@ void main() {
 
 class MyApp extends StatefulWidget {
   @override
-  // ignore: no_logic_in_create_state
   State<StatefulWidget> createState() {
-    // TODO: implement createState
-    throw UnimplementedError();
+    return _MyAppState();
   }
-
 }
-class MyAppState extends State {
+class _MyAppState extends State<MyApp> {
 
-  var questionIndex = 0;
-  void answerQuestion() {
-    questionIndex = questionIndex + 1 ;
+  var _questionIndex = 0;
+  void _answerQuestion() {
+    setState(() { 
+      _questionIndex = _questionIndex + 1 ;
+    });
+    
   }
 
   @override
@@ -36,19 +36,19 @@ class MyAppState extends State {
         body: Column(
           children: [
             Text(
-              question[questionIndex],
+              question[_questionIndex],
             ),
             RaisedButton(
               child: Text("Answer 1"),
-              onPressed: answerQuestion,
+              onPressed: _answerQuestion,
             ),
             RaisedButton(
               child: Text("Answer 2"),
-              onPressed: answerQuestion,
+              onPressed: _answerQuestion,
             ),
             RaisedButton(
               child: Text("Answer 3"),
-              onPressed: answerQuestion,
+              onPressed: _answerQuestion,
             ),
           ],
         ),
