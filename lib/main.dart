@@ -1,6 +1,7 @@
 // ignore_for_file: deprecated_member_use, prefer_const_constructors, use_key_in_widget_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import './question.dart';
 
 void main() {
   runApp(MyApp());
@@ -12,14 +13,15 @@ class MyApp extends StatefulWidget {
     return _MyAppState();
   }
 }
-class _MyAppState extends State<MyApp> {
 
+class _MyAppState extends State<MyApp> {
   var _questionIndex = 0;
   void _answerQuestion() {
-    setState(() { 
-      _questionIndex = _questionIndex + 1 ;
-    });
-    
+    setState(
+      () {
+        _questionIndex = _questionIndex + 1;
+      },
+    );
   }
 
   @override
@@ -35,7 +37,7 @@ class _MyAppState extends State<MyApp> {
         ),
         body: Column(
           children: [
-            Text(
+            Question(
               question[_questionIndex],
             ),
             RaisedButton(
